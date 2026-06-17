@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Task Manager</title>
+<!-- main css -->
+ 
+   
+    <link rel="stylesheet" href="src/css/all.min.css"/>
+    <link rel="stylesheet" href="src/css/main.css"/>
+
+
+</head>
+<body>
+    <div class="container">
+        <!--Start header -->
+        <header>
+            <div class="info">
+            <h1>Professional Task Manager</h1>
+            <p>Organise , prioritize , achieve</p>
+            </div>
+            
+            <div class="input">
+                <input type="text" id="task" class="task-input" placeholder="Add new task...... " >
+                <select id="Priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                </select>
+
+            <button id="addbtn"><i class="fas fa-plus "></i></button>
+            <p id="taskAlert">enter task Name </p>     
+            <button id="editbtn"><i class="fa-regular fa-pen-to-square"></i>
+            <p id="editAlert">Task names cannot be empty </p>
+        </div>
+    </header>
+        <!--End header -->
+<!--Start search Section -->
+    <section>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search" placeholder="Search by name" class="search">
+            </div>
+            
+    <div class="status-filters">
+    <span class="filter-label">Status</span>
+    <button id="btnAll" class="status-btn current">All</button>
+    <button id="btnPending" class="status-btn active">Pending</button>
+    <button id="btnCompleted" class="status-btn active">Completed</button>
+</div>
+        </section>
+<!--End search Section -->
+<!-- Start list container -->
+<div class="show" id="show">
+</div>
+    </div>
+    <script src="src/js/index.js"></script>
+</body>
+</html

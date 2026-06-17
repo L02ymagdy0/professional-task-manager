@@ -1,0 +1,356 @@
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    color:#000000;
+    display: flex;
+    justify-content: center;
+    padding:48px 16px;
+    background:linear-gradient(rgb(119 , 119 , 192)) ;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+/* End Global Rules */
+.container {
+    background-color: #ffffff;
+    width: 100%; 
+    max-width: 900px;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); 
+    background-color: #ffffff;
+}
+/* Start Header */
+header{
+    display: flex;
+    align-items: baseline;
+    gap: 25px;
+}
+header h1{
+font-size:  1.8em; ;
+font-weight:600 ;
+margin-bottom: 5px;
+}
+header p{
+  color: grey;
+  margin-bottom: 30px;
+}
+.input{
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    align-items: center;
+    position: relative;
+}
+.task-input{
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    font-size: 12px;
+    outline: none;
+    transition:0.2s;
+}
+.task-input:focus{
+border-color:#8b5cf6;
+}
+select{
+    padding:8px ;
+    border: 1px solid #eee;
+    border-radius:8px ;
+    cursor:pointer ;
+    text-align: center;
+}
+select:focus{
+    border-color:#8b5cf6;
+}
+
+#taskAlert , #editAlert{
+    color: red;
+    position: absolute;
+    top: 29px;
+    display: none;  
+    left: 5px;
+    font-size: small;
+    font-weight: 700;
+}
+
+#addbtn,#editbtn{
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-radius: 6px;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#addbtn{
+    padding: 3px 5px;
+}
+#editbtn{
+    padding: 4px 5px;
+    display: none;
+}
+
+#addbtn:hover{
+    opacity: 0.7;
+}
+
+#editbtn:hover{
+    opacity: 0.7;
+}
+/* end heading */
+/* start Section */
+section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+section i{
+    color: gray;
+    position: absolute;
+}
+.search-box{
+display: flex;
+    align-items: center;
+    align-content: flex-end;
+    flex: 1;
+    position: relative;
+}
+.search-box i{
+    margin-left: 4px;
+}
+.search{
+padding: 8px;
+border: 1px solid #eee;
+border-radius: 8px;
+  font-size: 12px;
+outline: none;
+transition: 0.2s;
+flex: 1;
+padding-left: 25px;
+}
+.search:focus{
+  border-color:#8b5cf6; 
+}
+.status-filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-left: 31px;
+    color: gray;
+}
+
+.status-filters button{
+    border: none;
+    padding: 5px;
+    background: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 200;
+    cursor: pointer;
+}
+.status-filters button:hover,.status-btn.current{
+    background-color: #d1cbc5;
+    font-weight: 400;
+    border-radius: 5px;
+    color: #4a443e;
+}
+/* end Section */
+/* start tasks */
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.task-list li{
+    user-select: none;
+}
+.task-list .task-text.checked{
+    color:#555 ;
+    text-decoration: line-through;
+}
+.task-item {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+        }
+.task-item.completed {
+    opacity: 0.4;
+
+}
+.badge-Completed.completed{
+    background-color: #d1cbc5;
+    color: #4a443e;
+}
+.task-main {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    padding: 5px;
+}
+.task-main i{
+    font-weight: 400;
+    cursor: pointer;
+}
+.task-main .badge{
+    margin-left: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500; 
+    width: 52px;
+}
+.task-main .badge-Completed{
+    margin-left: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500; 
+    width: 78px;
+}
+.active{
+    background-color: #d1cbc5;
+    color: grey;
+}
+.task-text {
+    font-size: 15px;
+    font-weight: 500;  
+}
+.task-item.completed .task-text {
+    color: #999;
+}
+.task-meta {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+}
+.priority-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #666;
+}
+.due-date {
+    font-size: 13px;
+    color: #666;
+    min-width: 90px;
+}
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: #f0ebe1;
+    color: #666;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+.icon-btn:hover {
+    background-color: #e2d9c8;
+    color: #333;
+}
+/* end list */
+/* colorclass priority*/
+.priority-high{
+    background-color: #fcd5ce; color: #d00000;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+.priority-medium{
+    background-color: #d8f3dc; 
+    color: #2d6a4f;
+    padding: 5px;
+    border: 1px solid #2d6a4f;
+    border-radius: 10px;
+}
+.priority-low{
+    background-color: #b4aaff;
+    color: #1d096c;
+    padding: 5px;
+    border: 1px solid #b4aaff;
+    border-radius: 10px;
+}
+/* Mobile */
+@media (max-width: 768px) {
+body {
+    padding: 0; 
+}
+.search{
+margin-bottom: 7px;
+}
+.container {  d: flex;
+        flex-direction: column; 
+    padding: 2rem 1.25rem;
+    border-radius: 0;
+}
+header{
+    flex-direction: column;
+}
+.input {
+     width: 100%;
+    }
+    .task-input {
+        width: 100%;
+        flex-basis: 100%; 
+        margin-bottom: 5px;
+    }
+  section {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 15px;
+}
+.status-filters {
+    padding-inline: 20px;
+    border-radius: 34px;
+    border: 1px #eee solid;
+    margin-left: 5px;
+}
+.task-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5px;
+        margin-bottom: 10px;
+}
+.task-meta {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid #eee; 
+    padding-top: 10px;
+    gap: 7px;
+}
+.task-row { 
+    padding: 1.25rem 1rem; 
+    gap: 1rem; 
+    margin-bottom: 1rem; 
+}
+   
+input, select {
+    font-size: 1rem; 
+    }
+}
